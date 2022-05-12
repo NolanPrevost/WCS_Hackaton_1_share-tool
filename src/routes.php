@@ -13,4 +13,11 @@ return [
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
+
+    'pots' => ['PotController', 'index',],
+    'pots/edit' => ['PotController', 'edit', ['id']],
+    'pots/show' => ['PotController', 'show', ['id']],
+    'pots/add' => ['PotController', 'add',],
+    'pots/delete' => ['PotController', 'delete',],
+
 ];
