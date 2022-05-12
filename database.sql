@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : jeu. 12 mai 2022 à 13:21
--- Version du serveur : 5.7.34
+-- Généré le : jeu. 12 mai 2022 à 17:24
+-- Version du serveur :  5.7.34
 -- Version de PHP : 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -22,9 +22,6 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-
-CREATE DATABASE share_tools;
-USE share_tools;
 
 --
 -- Structure de la table `pot`
@@ -44,10 +41,19 @@ CREATE TABLE `pot` (
 CREATE TABLE `tool` (
   `id` int(11) NOT NULL,
   `name` varchar(80) NOT NULL,
-  `booking_start` date NOT NULL,
-  `booking_end` date NOT NULL,
-  'image' VARCHAR(255) NOT NULL,
+  `booking_start` date DEFAULT NULL,
+  `booking_end` date DEFAULT NULL,
+  `is_booked` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `tool`
+--
+
+INSERT INTO `tool` (`id`, `name`, `booking_start`, `booking_end`, `is_booked`) VALUES
+(1, 'Marteau', NULL, NULL, 1),
+(2, 'Pistolet laser', NULL, NULL, 1),
+(3, 'Nimbus 2000', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -71,8 +77,15 @@ CREATE TABLE `wishlist` (
   `id` int(11) NOT NULL,
   `name` varchar(80) NOT NULL,
   `price` int(11) NOT NULL,
-  `vote` int(11) NOT NULL
+  `vote` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `wishlist`
+--
+
+INSERT INTO `wishlist` (`id`, `name`, `price`, `vote`) VALUES
+(3, 'Sabre laser', 1000, 0);
 
 --
 -- Index pour les tables déchargées
@@ -116,7 +129,7 @@ ALTER TABLE `pot`
 -- AUTO_INCREMENT pour la table `tool`
 --
 ALTER TABLE `tool`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `user`
@@ -128,7 +141,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 INSERT INTO tool (name, booking_start, booking_end, image, ) VALUES 
@@ -141,7 +154,7 @@ INSERT INTO user (firstname, lastname) VALUES
 ('Ranma', 'Demi'), 
 ('Dark', 'Vador'), 
 ('Sailor', 'Moon');
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
