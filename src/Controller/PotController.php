@@ -6,7 +6,6 @@ use App\Model\PotManager;
 
 class PotController extends AbstractController
 {
-
     public function index()
     {
         $potManager = new PotManager();
@@ -14,21 +13,6 @@ class PotController extends AbstractController
 
         return $this->twig->render('Pot/index.html.twig', ['pots' => $pots]);
     }
-
-    /**public function add(): ?string
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $pot = array_map('trim', $_POST);
-            $potManager = new PotManager();
-            $id = $potManager->insert($pot);
-
-            header('Location:/pots/show?id=' . $id);
-            return null;
-        }
-
-        return $this->twig->render('Pot/add.html.twig');
-    }*/
-
 
     /**
      * Show informations for a specific pot
@@ -60,15 +44,4 @@ class PotController extends AbstractController
             'pot' => $pot,
         ]);
     }
-
-    /**public function delete(): void
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id = trim($_POST['id']);
-            $potManager = new PotManager();
-            $potManager->delete((int)$id);
-
-            header('Location:/pots');
-        }
-    }*/
 }

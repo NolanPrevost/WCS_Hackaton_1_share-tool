@@ -6,7 +6,6 @@
     <a href="/pots/edit?id={{ pot.id }}">Edit</a>
     <form action="/pots/delete" method="POST">
         <input type="hidden" name="id" value="{{ pot.id }}">
-        {# <button>Delete</button> #}
     </form>
     <a href="/pots">Back</a>
 {% endblock %}
