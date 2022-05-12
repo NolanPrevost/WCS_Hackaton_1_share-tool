@@ -24,165 +24,90 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Creation de la base de données
+--
+DROP DATABASE IF EXISTS share_tools;
+CREATE DATABASE share_tools;
+
+USE share_tools;
+
+--
 -- Structure de la table `pot`
 --
 
 CREATE TABLE `pot` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
 
 --
 -- Structure de la table `tool`
 --
 
 CREATE TABLE `tool` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(80) NOT NULL,
   `booking_start` date DEFAULT NULL,
-  `booking_end` date DEFAULT NULL
-  'image' VARCHAR(255) NOT NULL,
-  `is_booked` TINYINT (1) NOT NULL,
+  `booking_end` date DEFAULT NULL,
+  `image` VARCHAR(255) NOT NULL,
+  `is_booked` TINYINT (1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `tool`
---
-
-INSERT INTO `tool` (`id`, `name`, `booking_start`, `booking_end`, `is_booked`) VALUES
-(1, 'Marteau', NULL, NULL, 1),
-(2, 'Pistolet laser', NULL, NULL, 1),
-(3, 'Nimbus 2000', NULL, NULL, 0);
-
--- --------------------------------------------------------
 
 --
 -- Structure de la table `user`
 --
 
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `firstname` varchar(80) NOT NULL,
   `lastname` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `user`
---
-
-INSERT INTO `user` (`id`, `firstname`, `lastname`) VALUES
-(1, 'Bob', 'Léponge'),
-(2, 'Ranma', 'Demi'),
-(3, 'Dark', 'Vador'),
-(4, 'Sailor', 'Moon'),
-
--- --------------------------------------------------------
-
---
--- Structure de la table `vote`
---
-
-CREATE TABLE `vote` (
-  `id` int(11) NOT NULL,
-  `vote` int(11) DEFAULT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_wishlist` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
 
 --
 -- Structure de la table `wishlist`
 --
 
 CREATE TABLE `wishlist` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(80) NOT NULL,
   `price` int(11) NOT NULL,
   `vote` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `wishlist`
+-- Structure de la table `vote`
 --
 
-INSERT INTO `wishlist` (`id`, `name`, `price`, `vote`) VALUES
-(3, 'Sabre laser', 1000, 0);
+CREATE TABLE `vote` (
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `vote` int(11) DEFAULT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_wishlist` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Index pour les tables déchargées
+-- Insert tools
 --
+INSERT INTO `tool` (`name`, `booking_start`, `booking_end`, `image`, `is_booked`) VALUES
+('Marteau', NULL, NULL, 'https://i.ibb.co/Kbgf2t4/Adobe-Stock-430355929.jpg', 0),
+('Pistolet laser', NULL, NULL, 'https://i.ibb.co/0rn0hFL/Adobe-Stock-463917493.jpg', 0),
+('Nimbus 2000', NULL, NULL, 'https://i.ibb.co/mFHByRh/Adobe-Stock-403407802.jpg', 0);
 
 --
--- Index pour la table `pot`
+-- Insert wishlist
 --
-ALTER TABLE `pot`
-  ADD PRIMARY KEY (`id`);
+INSERT INTO `wishlist` (`name`, `price`, `vote`) VALUES
+('Sabre laser', 1000, 0),
+('Appareil à raclettes', 100, 0),
+('French press', 1000, 0);
 
 --
--- Index pour la table `tool`
+-- Insert users
 --
-ALTER TABLE `tool`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `vote`
---
-ALTER TABLE `vote`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `wishlist`
---
-ALTER TABLE `wishlist`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `pot`
---
-ALTER TABLE `pot`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `tool`
---
-ALTER TABLE `tool`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT pour la table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT pour la table `wishlist`
---
-ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-COMMIT;
-
-INSERT INTO tool (name, booking_start, booking_end, image, ) VALUES 
-('Shiro', '15.05.2022', '25.05.2022', 'https://i.ibb.co/Kbgf2t4/Adobe-Stock-430355929.jpg',),
-('Atokuchi', '17.05.2022', '27.05.2022', 'https://i.ibb.co/0rn0hFL/Adobe-Stock-463917493.jpg',),
-('Akibine', '19.05.2022', '29.05.2022', 'https://i.ibb.co/mFHByRh/Adobe-Stock-403407802.jpg',),
-
-INSERT INTO user (firstname, lastname) VALUES
-('Bob', 'Léponge'), 
-('Ranma', 'Demi'), 
-('Dark', 'Vador'), 
+INSERT INTO `user` (`firstname`, `lastname`) VALUES
+('Bob', 'Léponge'),
+('Ranma', 'Demi'),
+('Dark', 'Vador'),
 ('Sailor', 'Moon');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
