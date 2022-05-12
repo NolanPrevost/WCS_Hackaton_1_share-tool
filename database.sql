@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : jeu. 12 mai 2022 à 13:21
+-- Généré le : jeu. 12 mai 2022 à 16:28
 -- Version du serveur : 5.7.34
 -- Version de PHP : 8.0.8
 
@@ -23,9 +23,6 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
-CREATE DATABASE share_tools;
-USE share_tools;
-
 --
 -- Structure de la table `pot`
 --
@@ -44,8 +41,8 @@ CREATE TABLE `pot` (
 CREATE TABLE `tool` (
   `id` int(11) NOT NULL,
   `name` varchar(80) NOT NULL,
-  `booking_start` date NOT NULL,
-  `booking_end` date NOT NULL
+  `booking_start` date DEFAULT NULL,
+  `booking_end` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -60,6 +57,33 @@ CREATE TABLE `user` (
   `lastname` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `firstname`, `lastname`) VALUES
+(1, 'Bob', 'Léponge'),
+(2, 'Ranma', 'Demi'),
+(3, 'Dark', 'Vador'),
+(4, 'Sailor', 'Moon'),
+(5, 'Bob', 'Léponge'),
+(6, 'Ranma', 'Demi'),
+(7, 'Dark', 'Vador'),
+(8, 'Sailor', 'Moon');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `vote`
+--
+
+CREATE TABLE `vote` (
+  `id` int(11) NOT NULL,
+  `vote` int(11) DEFAULT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_wishlist` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 -- --------------------------------------------------------
 
 --
@@ -70,7 +94,7 @@ CREATE TABLE `wishlist` (
   `id` int(11) NOT NULL,
   `name` varchar(80) NOT NULL,
   `price` int(11) NOT NULL,
-  `vote` int(11) NOT NULL
+  `vote` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -93,6 +117,12 @@ ALTER TABLE `tool`
 -- Index pour la table `user`
 --
 ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `vote`
+--
+ALTER TABLE `vote`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -121,7 +151,7 @@ ALTER TABLE `tool`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `wishlist`
@@ -130,13 +160,12 @@ ALTER TABLE `wishlist`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
-
 INSERT INTO user (firstname, lastname) VALUES
 ('Bob', 'Léponge'), 
 ('Ranma', 'Demi'), 
 ('Dark', 'Vador'), 
 ('Sailor', 'Moon');
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
