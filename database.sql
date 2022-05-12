@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : jeu. 12 mai 2022 à 16:28
--- Version du serveur : 5.7.34
+-- Généré le : jeu. 12 mai 2022 à 17:24
+-- Version du serveur :  5.7.34
 -- Version de PHP : 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -46,6 +46,15 @@ CREATE TABLE `tool` (
   'image' VARCHAR(255) NOT NULL,
   `is_booked` TINYINT (1) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `tool`
+--
+
+INSERT INTO `tool` (`id`, `name`, `booking_start`, `booking_end`, `is_booked`) VALUES
+(1, 'Marteau', NULL, NULL, 1),
+(2, 'Pistolet laser', NULL, NULL, 1),
+(3, 'Nimbus 2000', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -96,6 +105,13 @@ CREATE TABLE `wishlist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Déchargement des données de la table `wishlist`
+--
+
+INSERT INTO `wishlist` (`id`, `name`, `price`, `vote`) VALUES
+(3, 'Sabre laser', 1000, 0);
+
+--
 -- Index pour les tables déchargées
 --
 
@@ -143,7 +159,7 @@ ALTER TABLE `pot`
 -- AUTO_INCREMENT pour la table `tool`
 --
 ALTER TABLE `tool`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `user`
@@ -155,7 +171,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 INSERT INTO tool (name, booking_start, booking_end, image, ) VALUES 
