@@ -1,0 +1,7 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Edit tool {{ tool.title }}</h1>
+    {% include 'Tool/_form.html.twig' %}
+    <a href="/tools/show?id={{ tool.id }}">Back</a>
+{% endblock %}
