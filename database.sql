@@ -70,8 +70,7 @@ CREATE TABLE `user` (
 CREATE TABLE `wishlist` (
   `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(80) NOT NULL,
-  `price` int(11) NOT NULL,
-  `vote` int(11) DEFAULT NULL
+  `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -81,8 +80,14 @@ CREATE TABLE `wishlist` (
 CREATE TABLE `vote` (
   `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `vote` int(11) DEFAULT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_wishlist` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  CONSTRAINT fk_vote_user
+  FOREIGN KEY (user_id)
+  REFERENCES user(id),
+  `wishlist_id` int(11) NOT NULL,
+  CONSTRAINT fk_vote_wishlist
+  FOREIGN KEY (wishlist_id)
+  REFERENCES wishlist(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -96,10 +101,10 @@ INSERT INTO `tool` (`name`, `booking_start`, `booking_end`, `image`, `is_booked`
 --
 -- Insert wishlist
 --
-INSERT INTO `wishlist` (`name`, `price`, `vote`) VALUES
-('Sabre laser', 1000, 0),
-('Appareil à raclettes', 100, 0),
-('French press', 1000, 0);
+INSERT INTO `wishlist` (`name`, `price`) VALUES
+('Sabre laser', 1000),
+('Appareil à raclettes', 100),
+('French press', 1000);
 
 --
 -- Insert users
