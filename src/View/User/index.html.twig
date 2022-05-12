@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Utilisateurs</h1>
+    <ul>
+        {% for user in users %}
+            <li><a href="/users/show?id={{ user.id }}">{{ user.id }}. {{ user.firstname }} {{ user.lastname }}</a></li>
+        {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
