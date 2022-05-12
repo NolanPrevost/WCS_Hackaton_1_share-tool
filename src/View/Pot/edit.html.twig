@@ -1,0 +1,7 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Edit Pot {{ item.title }}</h1>
+    {% include 'Pot/_form.html.twig' %}
+    <a href="/pots/show?id={{ pot.id }}">Back</a>
+{% endblock %}
