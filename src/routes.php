@@ -13,4 +13,10 @@ return [
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
+
+    'wishlist' => ['WishlistController', 'index',],
+    'wishitems/edit' => ['WishlistController', 'edit', ['id']],
+    'wishitems/show' => ['WishlistController', 'show', ['id']],
+    'wishitems/add' => ['WishlistController', 'add',],
+    'wishitems/delete' => ['WishlistController', 'delete',],
 ];
