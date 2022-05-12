@@ -41,14 +41,10 @@ CREATE TABLE `pot` (
 CREATE TABLE `tool` (
   `id` int(11) NOT NULL,
   `name` varchar(80) NOT NULL,
-<<<<<<< HEAD
   `booking_start` date DEFAULT NULL,
   `booking_end` date DEFAULT NULL
-=======
-  `booking_start` date NOT NULL,
-  `booking_end` date NOT NULL,
   'image' VARCHAR(255) NOT NULL,
->>>>>>> b50f418410e9f67da95a1c5c256fe739330dfea6
+  `is_booked` TINYINT (1) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -72,10 +68,6 @@ INSERT INTO `user` (`id`, `firstname`, `lastname`) VALUES
 (2, 'Ranma', 'Demi'),
 (3, 'Dark', 'Vador'),
 (4, 'Sailor', 'Moon'),
-(5, 'Bob', 'Léponge'),
-(6, 'Ranma', 'Demi'),
-(7, 'Dark', 'Vador'),
-(8, 'Sailor', 'Moon');
 
 -- --------------------------------------------------------
 
@@ -166,14 +158,11 @@ ALTER TABLE `wishlist`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
-<<<<<<< HEAD
-=======
 INSERT INTO tool (name, booking_start, booking_end, image, ) VALUES 
 ('Shiro', '15.05.2022', '25.05.2022', 'https://i.ibb.co/Kbgf2t4/Adobe-Stock-430355929.jpg',),
 ('Atokuchi', '17.05.2022', '27.05.2022', 'https://i.ibb.co/0rn0hFL/Adobe-Stock-463917493.jpg',),
 ('Akibine', '19.05.2022', '29.05.2022', 'https://i.ibb.co/mFHByRh/Adobe-Stock-403407802.jpg',),
 
->>>>>>> b50f418410e9f67da95a1c5c256fe739330dfea6
 INSERT INTO user (firstname, lastname) VALUES
 ('Bob', 'Léponge'), 
 ('Ranma', 'Demi'), 
