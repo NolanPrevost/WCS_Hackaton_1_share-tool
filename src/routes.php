@@ -20,4 +20,15 @@ return [
     'pots/add' => ['PotController', 'add',],
     'pots/delete' => ['PotController', 'delete',],
 
+    'wishlist' => ['WishlistController', 'index',],
+    'wishlist/edit' => ['WishlistController', 'edit', ['id']],
+    'wishlist/show' => ['WishlistController', 'show', ['id']],
+    'wishlist/add' => ['WishlistController', 'add',],
+    'wishlist/delete' => ['WishlistController', 'delete',],
+
+    'users' => ['UserController', 'index',],
+    'users/edit' => ['UserController', 'edit', ['id']],
+    'users/show' => ['UserController', 'show', ['id']],
+    'users/add' => ['UserController', 'add',],
+    'users/delete' => ['UserController', 'delete',],
 ];

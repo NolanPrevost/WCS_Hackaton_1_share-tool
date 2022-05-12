@@ -3,10 +3,10 @@
 {% block content %}
     <h1>{{ wishitem.title }}</h1>
     <p>{{ wishitem.id }}. {{ wishitem.name }}</p>
-    <a href="/wishitems/edit?id={{ wishitem.id }}">Edit</a>
-    <form action="/wishitems/delete" method="POST">
+    <a href="/wishlist/edit?id={{ wishitem.id }}">Edit</a>
+    <form action="/wishlist/delete" method="POST">
         <input type="hidden" name="id" value="{{ wishitem.id }}">
         <button>Delete</button>
     </form>
-    <a href="/items">Back</a>
+    <a href="/wishlist">Back</a>
 {% endblock %}
