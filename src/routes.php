@@ -11,4 +11,22 @@ return [
     'tools' => ['ToolController', 'index',],
     'tools/edit' => ['ToolController', 'edit', ['id']],
     'tools/show' => ['ToolController', 'show', ['id']],
+
+    'pots' => ['PotController', 'index',],
+    'pots/edit' => ['PotController', 'edit', ['id']],
+    'pots/show' => ['PotController', 'show', ['id']],
+    'pots/add' => ['PotController', 'add',],
+    'pots/delete' => ['PotController', 'delete',],
+
+    'wishlist' => ['WishlistController', 'index',],
+    'wishlist/edit' => ['WishlistController', 'edit', ['id']],
+    'wishlist/show' => ['WishlistController', 'show', ['id']],
+    'wishlist/add' => ['WishlistController', 'add',],
+    'wishlist/delete' => ['WishlistController', 'delete',],
+
+    'users' => ['UserController', 'index',],
+    'users/edit' => ['UserController', 'edit', ['id']],
+    'users/show' => ['UserController', 'show', ['id']],
+    'users/add' => ['UserController', 'add',],
+    'users/delete' => ['UserController', 'delete',],
 ];

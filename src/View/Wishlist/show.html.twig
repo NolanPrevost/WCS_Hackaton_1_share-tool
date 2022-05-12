@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>{{ wishitem.title }}</h1>
+    <p>{{ wishitem.id }}. {{ wishitem.name }}</p>
+    <a href="/wishlist/edit?id={{ wishitem.id }}">Edit</a>
+    <form action="/wishlist/delete" method="POST">
+        <input type="hidden" name="id" value="{{ wishitem.id }}">
+        <button>Delete</button>
+    </form>
+    <a href="/wishlist">Back</a>
+{% endblock %}
