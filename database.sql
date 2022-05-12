@@ -43,6 +43,8 @@ CREATE TABLE `tool` (
   `name` varchar(80) NOT NULL,
   `booking_start` date DEFAULT NULL,
   `booking_end` date DEFAULT NULL
+  `image` VARCHAR(255) NOT NULL,
+  `is_booked` TINYINT (1) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -159,6 +161,11 @@ ALTER TABLE `user`
 ALTER TABLE `wishlist`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
+
+INSERT INTO tool (name, booking_start, booking_end, image, ) VALUES 
+('Shiro', '15.05.2022', '25.05.2022', 'https://i.ibb.co/Kbgf2t4/Adobe-Stock-430355929.jpg',),
+('Atokuchi', '17.05.2022', '27.05.2022', 'https://i.ibb.co/0rn0hFL/Adobe-Stock-463917493.jpg',),
+('Akibine', '19.05.2022', '29.05.2022', 'https://i.ibb.co/mFHByRh/Adobe-Stock-403407802.jpg',),
 
 INSERT INTO user (firstname, lastname) VALUES
 ('Bob', 'Léponge'), 
