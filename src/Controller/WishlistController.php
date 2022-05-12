@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\WishlistManager;
+use App\Model\VoteManager;
 
 class WishlistController extends AbstractController
 {
@@ -18,14 +19,22 @@ class WishlistController extends AbstractController
     }
 
   /**
-   * Show informations for a specific item
+   * Show informations for a specific wish item
    */
-    public function show(int $id): string
+    public function show(int $id)
     {
         $wishlistManager = new WishlistManager();
-        $wishitem = $wishlistManager->selectOneById($id);
+        $wishitem = $wishlistManager->selectOneById($id); {
+        $voteManager = new VoteManager();
+        $votes = $voteManager->selectVoteByWishId($id);
+        if (empty($wishitem)) {
+            header('Location:/');
+        }
+        $voteManager = new VoteManager();
+        $votes = $voteManager->selectVoteByWishId($id);
 
-        return $this->twig->render('wishlist/show.html.twig', ['wishitem' => $wishitem]);
+        return $this->twig->render('Wishlist/show.html.twig', ['wishitem' => $wishitem, 'votes' => $votes]);
+        }
     }
 
   /**

@@ -27,7 +27,7 @@ class VoteManager extends AbstractManager
     public function update(array $vote): bool
     {
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE .
-        " SET `vote` = :vote, `user_id,` = :user_id, `wishlist_id,` = :wishlist_id WHERE id=:id");
+            " SET `vote` = :vote, `user_id,` = :user_id, `wishlist_id,` = :wishlist_id WHERE id=:id");
         $statement->bindValue('id', $vote['id'], \PDO::PARAM_INT);
         $statement->bindValue('vote', $vote['vote'], \PDO::PARAM_INT);
         $statement->bindValue('user_id', $vote['user_id'], \PDO::PARAM_INT);
@@ -36,7 +36,7 @@ class VoteManager extends AbstractManager
         return $statement->execute();
     }
 
-        /**
+    /**
      * Get all rows from database.
      */
     public function selectAll(string $orderBy = '', string $direction = 'ASC'): array
@@ -56,11 +56,12 @@ class VoteManager extends AbstractManager
     public function selectVoteByWishId(int $id): array|false
     {
         // prepared request
-        $statement = $this->pdo->prepare('SELECT v.wishlist, v.vote
-        FROM " . static::TABLE . " AS v
-        INNER JOIN user AS u ON v.user = v.id
-        INNER JOIN wishlist AS w ON v.wishlist = w.id";
+        $statement = $this->pdo->prepare('SELECT v.wishlist_id, v.vote, v.user_id
+        FROM ' . static::TABLE . ' AS v
+        INNER JOIN user AS u ON v.user_id = v.id
+        INNER JOIN wishlist AS w ON v.wishlist_id = w.id
         WHERE wishlist_id = :id');
+
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
 

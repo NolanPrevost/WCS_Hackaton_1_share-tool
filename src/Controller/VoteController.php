@@ -24,9 +24,9 @@ class VoteController extends AbstractController
     public function show(int $id): string
     {
         $voteManager = new VoteManager();
-        $votes = $voteManager->selectVoteByWishId($id);
+        $vote = $voteManager->selectVoteByWishId($id);
 
-        return $this->twig->render('Vote/show.html.twig', ['votes' => $votes]);
+        return $this->twig->render('Vote/show.html.twig', ['vote' => $vote]);
     }
 
     /**
@@ -71,7 +71,7 @@ class VoteController extends AbstractController
         return $this->twig->render('Vote/add.html.twig');
     }
 
-        /**
+    /**
      * Delete a specific vote
      */
     public function delete(): void
