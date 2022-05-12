@@ -4,20 +4,13 @@ namespace App\Controller;
 
 use App\Model\ToolManager;
 
-
 class ToolController extends AbstractController
 {
-    /**
-     * List tools
-     */
     public function index(): string
     {
         $toolManager = new ToolManager();
         $tools = $toolManager->selectAll('name');
-                  
-        return $this->twig->render('Tool/index.html.twig', [
-            'tools' => $tools,
-        ]);
+        return $this->twig->render('Tool/index.html.twig', ['tools' => $tools,]);
     }
 
     public function show(int $id): string
