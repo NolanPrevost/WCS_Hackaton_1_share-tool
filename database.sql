@@ -42,7 +42,8 @@ CREATE TABLE `tool` (
   `id` int(11) NOT NULL,
   `name` varchar(80) NOT NULL,
   `booking_start` date NOT NULL,
-  `booking_end` date NOT NULL
+  `booking_end` date NOT NULL,
+  'image' VARCHAR(255) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
