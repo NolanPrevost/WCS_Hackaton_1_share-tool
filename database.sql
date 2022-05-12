@@ -85,7 +85,6 @@ CREATE TABLE `vote` (
   `id_wishlist` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
 --
 -- Insert tools
 --

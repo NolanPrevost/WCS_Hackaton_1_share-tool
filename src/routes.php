@@ -7,11 +7,14 @@
 //          3. (optional) array of query string keys to send as parameter to the method
 // e.g route '/Tool/edit?id=1' will execute $itemController->edit(1)
 return [
-    '' => ['HomeController', 'index',],
+    '' => ['ToolController', 'index',],
     'tools' => ['ToolController', 'index',],
     'tools/edit' => ['ToolController', 'edit', ['id']],
     'tools/show' => ['ToolController', 'show', ['id']],
-
+    'tools/reservation' => ['ToolController', 'toolReservation',],
+    'reservation-confirmed' => ['ToolController', 'reservationConfirmed',],
+    'mes-reservations' => ['ToolController', 'myReservation',],
+    'annuler-ma-reservation' => ['ToolController', 'annulation',],
     'pots' => ['PotController', 'index',],
     'pots/edit' => ['PotController', 'edit', ['id']],
     'pots/show' => ['PotController', 'show', ['id']],

@@ -1,9 +1,37 @@
-{% extends 'layout.html.twig' %}
+{% extends 'layout.html.twig' %} {% block nav %} {% include
+"Layouts/nav.html.twig" %} {% endblock %} {% block footer %} {% include
+"Layouts/footer.html.twig" %} {% endblock %} {% block content %}
+<div class="container">
+    <h1>Bienvenu !</h1>
+    <h2>Choisis un outil à réserver</h2>
 
-{% block nav %}
-{% include "Layouts/nav.html.twig" %}
-{% endblock %}
+            
 
-{% block content %}
-    <h1>Hello Wilder !</h1>
+            <div class="row">
+              <div class="col">
+                {% for tool in tools %}
+                <div class="card border-primary mb-3" style="max-width: 20rem">
+                    <div class="card-header">
+                        {% if tool.is_booked == 0 %}
+                        <button type="button" class="btn btn-outline-success">
+                            <a href="/tools/reservation?id={{ tool.id }}"
+                                >Réserver</a
+                            >
+                        </button>
+                        {% elseif tool.is_booked == 1 %}
+                        <p>
+                            Indisponible jusqu'au <b>{{ tool.booking_end }}</b>
+                        </p>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ tool.name }}</h4>
+                        <p class="card-text">Text</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
