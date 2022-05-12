@@ -15,8 +15,8 @@ return [
     'items/delete' => ['ItemController', 'delete',],
 
     'wishlist' => ['WishlistController', 'index',],
-    'wishitems/edit' => ['WishlistController', 'edit', ['id']],
-    'wishitems/show' => ['WishlistController', 'show', ['id']],
-    'wishitems/add' => ['WishlistController', 'add',],
-    'wishitems/delete' => ['WishlistController', 'delete',],
+    'wishlist/edit' => ['WishlistController', 'edit', ['id']],
+    'wishlist/show' => ['WishlistController', 'show', ['id']],
+    'wishlist/add' => ['WishlistController', 'add',],
+    'wishlist/delete' => ['WishlistController', 'delete',],
 ];

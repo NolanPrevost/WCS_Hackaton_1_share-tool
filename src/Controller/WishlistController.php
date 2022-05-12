@@ -12,7 +12,7 @@ class WishlistController extends AbstractController
     public function index(): string
     {
         $wishlistManager = new WishlistManager();
-        $wishitems = $wishlistManager->selectAll('name');
+        $wishitems = $wishlistManager->selectAll();
 
         return $this->twig->render('Wishlist/index.html.twig', ['wishitems' => $wishitems]);
     }
@@ -25,7 +25,7 @@ class WishlistController extends AbstractController
         $wishlistManager = new WishlistManager();
         $wishitem = $wishlistManager->selectOneById($id);
 
-        return $this->twig->render('Wishitems/show.html.twig', ['wishitem' => $wishitem]);
+        return $this->twig->render('wishlist/show.html.twig', ['wishitem' => $wishitem]);
     }
 
   /**
@@ -45,13 +45,13 @@ class WishlistController extends AbstractController
           // if validation is ok, update and redirection
             $wishlistManager->update($wishitem);
 
-            header('Location: /Wishitems/show?id=' . $id);
+            header('Location: /wishlist/show?id=' . $id);
 
           // we are redirecting so we don't want any content rendered
             return null;
         }
 
-        return $this->twig->render('Wishitems/edit.html.twig', [
+        return $this->twig->render('wishlist/edit.html.twig', [
         'wishitem' => $wishitem,
         ]);
     }
@@ -71,11 +71,11 @@ class WishlistController extends AbstractController
             $wishlistManager = new WishlistManager();
             $id = $wishlistManager->insert($wishitem);
 
-            header('Location:/Wishitems/show?id=' . $id);
+            header('Location:/wishlist/show?id=' . $id);
             return null;
         }
 
-        return $this->twig->render('Wishitems/add.html.twig');
+        return $this->twig->render('wishlist/add.html.twig');
     }
 
   /**
@@ -88,7 +88,7 @@ class WishlistController extends AbstractController
             $wishlistManager = new WishlistManager();
             $wishlistManager->delete((int)$id);
 
-            header('Location:/Wishitems');
+            header('Location:/wishlist');
         }
     }
 }

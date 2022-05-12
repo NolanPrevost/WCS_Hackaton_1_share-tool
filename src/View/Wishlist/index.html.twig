@@ -4,10 +4,10 @@
     <h1>Wishlist</h1>
     <ul>
         {% for wishitem in wishitems %}
-            <li><a href="/wishitems/show?id={{ wishitem.id }}">{{ wishitem.id }}. {{ wishitem.name }}</a></li>
+            <li><a href="/wishlist/show?id={{ wishitem.id }}">{{ wishitem.id }}. {{ wishitem.name }}</a></li>
         {% else %}
             <li>Nothing to display</li>
         {% endfor %}
     </ul>
-    <a href="/items/add">Ajouter</a>
+    <a href="/wishlist/add">Ajouter</a>
 {% endblock %}
