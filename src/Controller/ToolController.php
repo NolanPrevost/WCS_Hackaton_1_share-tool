@@ -10,7 +10,7 @@ class ToolController extends AbstractController
     {
         $toolManager = new ToolManager();
         $tools = $toolManager->selectAll('name');
-        return $this->twig->render('Tool/index.html.twig', ['tools' => $tools,]);
+        return $this->twig->render('Home/index.html.twig', ['tools' => $tools,]);
     }
 
     public function show(int $id): string
@@ -45,5 +45,12 @@ class ToolController extends AbstractController
         }
 
         return $this->twig->render('Tool/edit.html.twig', ['tool' => $tool]);
+    }
+
+    public function toolReservation(): string
+    {
+        $toolManager = new ToolManager();
+        $tools = $toolManager->selectAll('name');
+        return $this->twig->render('Home/index.html.twig', ['tools' => $tools,]);
     }
 }
