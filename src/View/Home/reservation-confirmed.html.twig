@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block nav %}
+{% include "Layouts/nav.html.twig" %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>Votre réservation est confirmée !</h1>
+  <p>Voir <a href="/mes-reservations">mes réservations</a></p>
+</div>
+{% endblock content %}
+
+{% block footer %}
+{% include "Layouts/footer.html.twig" %}
+{% endblock %}
