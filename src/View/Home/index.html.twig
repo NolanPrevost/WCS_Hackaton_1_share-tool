@@ -14,21 +14,17 @@
                 {% for tool in tools %}
                 <div class="card border-primary mb-3" style="max-width: 20rem">
                     <div class="card-header">
-                        {% if tool.is_booked == 0 %}
                         <button type="button" class="btn btn-outline-success">
                             <a href="/tools/reservation?id={{ tool.id }}"
                                 >Réserver</a
                             >
                         </button>
-                        {% elseif tool.is_booked == 1 %}
-                        <p>
-                            Indisponible jusqu'au <b>{{ tool.booking_end }}</b>
-                        </p>
-                        {% endif %}
+
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">{{ tool.name }}</h4>
-                        <p class="card-text">Text</p>
+                        <p class="card-text"><img src="{{ tool.image }}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 25px" alt="">
+                        </p>
                     </div>
                 </div>
             
