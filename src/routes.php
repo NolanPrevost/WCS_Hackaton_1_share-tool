@@ -11,11 +11,11 @@ return [
     'tools' => ['ToolController', 'index',],
     // 'tools/edit' => ['ToolController', 'edit', ['id']],
     'tools/show' => ['ToolController', 'show', ['id']],
-    'tools/reservation' => ['ToolController', 'toolReservation',],
+    'tools/reservation' => ['ReservationController', 'insertReservation',],
 
-    'reservation-confirmed' => ['ToolController', 'reservationConfirmed',],
-    'mes-reservations' => ['ToolController', 'myReservation',],
-    'annuler-ma-reservation' => ['ToolController', 'annulation',],
+    'reservation-confirmed' => ['ReservationController', 'reservationConfirmed',],
+    'mes-reservations' => ['ReservationController', 'myReservations',],
+    'annuler-ma-reservation' => ['ReservationController', 'annulation',],
 
     'pots' => ['PotController', 'index',],
     'pots/edit' => ['PotController', 'edit', ['id']],
