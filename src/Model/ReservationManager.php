@@ -34,4 +34,13 @@ class ReservationManager extends AbstractManager
         $query = 'SELECT * FROM ' . static::TABLE . ' WHERE user_id = 1';
         return $this->pdo->query($query)->fetchAll();
     }
+
+    public function selectReservationByToolId($id): array
+    {
+        $statement = $this->pdo->prepare('SELECT * FROM ' . static::TABLE . ' WHERE tool_id = :id');
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
 }
