@@ -71,7 +71,9 @@ CREATE TABLE `wishlist` (
   `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(80) NOT NULL,
   `price` int(11) NOT NULL,
-  `vote` int(11) DEFAULT NULL
+  `image` VARCHAR(255) NOT NULL,
+  `website` VARCHAR(255) NOT NULL,
+  `vote` int(11) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -81,8 +83,14 @@ CREATE TABLE `wishlist` (
 CREATE TABLE `vote` (
   `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `vote` int(11) DEFAULT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_wishlist` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  CONSTRAINT fk_vote_user
+  FOREIGN KEY (user_id)
+  REFERENCES user(id),
+  `wishlist_id` int(11) NOT NULL,
+  CONSTRAINT fk_vote_wishlist
+  FOREIGN KEY (wishlist_id)
+  REFERENCES wishlist(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -96,10 +104,11 @@ INSERT INTO `tool` (`name`, `booking_start`, `booking_end`, `image`, `is_booked`
 --
 -- Insert wishlist
 --
-INSERT INTO `wishlist` (`name`, `price`, `vote`) VALUES
-('Sabre laser', 1000, 0),
-('Appareil à raclettes', 100, 0),
-('French press', 1000, 0);
+INSERT INTO `wishlist` (`name`, `price`, `image`, `website`) VALUES
+('Sabre laser', 280, 'https://static.lacitedesnuages.be/153097-large_default/star-wars-episode-ix-black-series-replique-11-sabre-laser-force-fx-elite-leia-organa.webp', 'https://www.micromania.fr/replique-black-series-star-wars-sabre-laser-leia-force-fx-elite-116646.html'),
+('Appareil à raclette', 48,'https://www.backmarket.fr/cdn-cgi/image/format=auto,quality=75,width=3840/https://d1eh9yux7w8iql.cloudfront.net/product_images/1575526783.81.jpg', 'https://www.backmarket.fr/grill-raclette-oneconcept-woklette-pas-cher/309945.html#l=10'),
+('Appareil à fondue', 50, 'https://www.papillesetpupilles.fr/wp-content/uploads/2019/07/Fondue-savoyarde-%C2%A9margouillat-photo-shutterstock.jpg', 'https://www.backmarket.fr/appareil-a-fondue-tefal-ef351412-pas-cher/261725.html?shopping=gmc&gclid=Cj0KCQjw4PKTBhD8ARIsAHChzRIYk0yOuA-rpWiTjjcPBtK3pFgKkhR3OdfIJRx-NHK_TZN24d2FD9oaAsiOEALw_wcB#?l=12'),
+('Glacière électrique', 55, 'https://www.backmarket.fr/cdn-cgi/image/format=auto,quality=75,width=3840/https://d1eh9yux7w8iql.cloudfront.net/product_images/1524819912.57.jpg', 'https://www.backmarket.fr/severin-kb2922-glaciere-electrique-20l-cool-box-pas-cher/12302.html#l=10');
 
 --
 -- Insert users
@@ -109,6 +118,7 @@ INSERT INTO `user` (`firstname`, `lastname`) VALUES
 ('Ranma', 'Demi'),
 ('Dark', 'Vador'),
 ('Sailor', 'Moon');
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

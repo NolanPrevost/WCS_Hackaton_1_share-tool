@@ -11,11 +11,13 @@ class WishlistManager extends AbstractManager
      */
     public function insert(array $wishItem): int
     {
-        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . "
-        (name, price, vote) VALUES (:name, :price, :vote)");
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
+        "(`name`, `price`, `image`, `website`) VALUES (:name, :price, :image, :website)");
         $statement->bindValue('name', $wishItem['name'], \PDO::PARAM_STR);
         $statement->bindValue('price', $wishItem['price'], \PDO::PARAM_STR);
-        $statement->bindValue('vote', $wishItem['vote'], \PDO::PARAM_STR);
+        $statement->bindValue('image', $wishItem['image'], \PDO::PARAM_STR);
+        // $statement->bindValue('image', $wishItem['image'], \PDO::PARAM_STR);
+        $statement->bindValue('website', $wishItem['website'], \PDO::PARAM_STR);
 
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
@@ -26,10 +28,13 @@ class WishlistManager extends AbstractManager
      */
     public function update(array $wishItem): bool
     {
-        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET name = :name, price = -price WHERE id=:id");
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE .
+        " SET `name` = :name, `price` = :price, `image` = :image, `website` = :website WHERE id=:id");
         $statement->bindValue('id', $wishItem['id'], \PDO::PARAM_INT);
         $statement->bindValue('name', $wishItem['name'], \PDO::PARAM_STR);
         $statement->bindValue('price', $wishItem['price'], \PDO::PARAM_STR);
+        $statement->bindValue('image', $wishItem['image'], \PDO::PARAM_STR);
+        $statement->bindValue('website', $wishItem['website'], \PDO::PARAM_STR);
 
         return $statement->execute();
     }

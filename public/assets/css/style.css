@@ -1,55 +1,86 @@
-/* footer */
-.footer-basic { 
-    position:absolute;
-    bottom:0;
-    width:100%;
-    padding-top:50px;
-    }
-  
 .footer-basic {
-    padding:10px 0px;
-    background-color:#aeccda;
-    color:#060607;
-    }
-      
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-top: 50px;
+}
+
+.footer-basic {
+    padding: 10px 0px;
+    background-color: #aeccda;
+    color: #060607;
+}
+
 .footer-basic ul {
-    padding:0;
-    list-style:none;
-    text-align:center;
-    font-size:18px;
-    line-height:1.6;
-    margin-bottom:0;
-    }
-      
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
 .footer-basic li {
-    padding:0 10px;
-    }
-      
+    padding: 0 10px;
+}
+
 .footer-basic ul a {
-    color:inherit;
-    text-decoration:none;
-    opacity:0.8;
-    }
-      
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
 .footer-basic ul a:hover {
-    opacity:1;
-    }
-      
+    opacity: 1;
+}
+
 .footer-basic .social {
-    text-align:center;
-    padding-bottom:25px;
-    }
-      
+    text-align: center;
+    padding-bottom: 25px;
+}
+
 .footer-basic .copyright {
-    margin-top:15px;
-    text-align:center;
-    font-size:13px;
-    color:rgb(30, 33, 80);
-    margin-bottom:0;
-    background-color:#aeccda;
-    }
-    
-/* Home */
-.welcome-title {
-    margin-top: 20px;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: rgb(30, 33, 80);
+    margin-bottom: 0;
+    background-color: #aeccda;
+}
+
+.all-wishitem-content {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 10px;
+    margin-right: auto;
+}
+
+.img-wishitem {
+    max-width: 100%;
+    height: auto;
+    overflow: 10px;
+}
+
+.stretched-link-wishitems {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    font-family: 'julius sans one';
+
+}
+
+.btn-add-card-products {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    transition: transform .1s; 
+}
+
+.btn-add-card-products:hover{
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
