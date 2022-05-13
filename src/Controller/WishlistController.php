@@ -46,17 +46,10 @@ class WishlistController extends AbstractController
         $wishitem = $wishlistManager->selectOneById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-          // clean $_POST data
             $wishitem = array_map('trim', $_POST);
-
-          // TODO validations (length, format...)
-
-          // if validation is ok, update and redirection
             $wishlistManager->update($wishitem);
 
             header('Location: /wishlist/show?id=' . $id);
-
-          // we are redirecting so we don't want any content rendered
             return null;
         }
 
@@ -71,16 +64,11 @@ class WishlistController extends AbstractController
     public function add(): ?string
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-          // clean $_POST data
             $wishitem = array_map('trim', $_POST);
-
-          // TODO validations (length, format...)
-
-          // if validation is ok, insert and redirection
             $wishlistManager = new WishlistManager();
-            $id = $wishlistManager->insert($wishitem);
+            $wishlistManager->insert($wishitem);
 
-            header('Location:/wishlist/show?id=' . $id);
+            header('Location:/wishlist');
             return null;
         }
 

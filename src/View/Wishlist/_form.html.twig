@@ -13,6 +13,10 @@
     <input class="form-control" type="text" id="name" name="name" value="{{ wishlist.name }}">
     <label class="form-label mt-4" for="price">Prix</label>
     <input class="form-control" type="text" id="price" name="price" value="{{ wishlist.price }}">
+    <label class="form-label mt-4" for="image">Photo (sous format url)</label>
+    <input class="form-control" type="text" id="image" name="image" value="{{ wishlist.image }}">
+    <label class="form-label mt-4" for="website">Lien vers site internet</label>
+    <input class="form-control" type="text" id="website" name="website" value="{{ wishlist.website }}">
     <input type="hidden" value="{{ wishlist.vote }}" name="vote" required />
     <button type="submit" class="btn btn-primary m-3">Proposer</button>
   </form>

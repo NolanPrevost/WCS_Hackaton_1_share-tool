@@ -9,7 +9,7 @@
 return [
     '' => ['ToolController', 'index',],
     'tools' => ['ToolController', 'index',],
-    'tools/edit' => ['ToolController', 'edit', ['id']],
+    // 'tools/edit' => ['ToolController', 'edit', ['id']],
     'tools/show' => ['ToolController', 'show', ['id']],
     'tools/reservation' => ['ToolController', 'toolReservation',],
 

@@ -4,7 +4,7 @@
     <h1>Tools</h1>
     <ul>
         {% for tool in tools %}
-            <li><a href="/tools/show?id={{ tool.id }}">{{ tool.id }}. {{ tool.title }}</a></li>
+            <li><a href="/tools/show?id={{ tool.id }}">{{ tool.id }}. {{ tool.name }}</a></li>
         {% else %}
             <li>Nothing to display</li>
         {% endfor %}

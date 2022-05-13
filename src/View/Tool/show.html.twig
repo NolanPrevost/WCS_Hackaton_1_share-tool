@@ -1,8 +1,8 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Tool {{ item.title }}</h1>
-    <p>{{ tool.id }}. {{ tool.title }}</p>
+    <br><h2>Détails sur le produit</h2><br>
+    <p>{{ tool.name }}</p>
     <a href="/tools/edit?id={{ tool.id }}">Edit</a>
     <form action="/tools/delete" method="POST">
         <input type="hidden" name="id" value="{{ tool.id }}">
