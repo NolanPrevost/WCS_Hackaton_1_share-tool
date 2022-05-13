@@ -13,8 +13,8 @@
 <div class="container">
   <h1>Mes outils réservés</h1>
 <ul>
-  {% for tool in tools %}
-    <li class="mb-3"><b>{{ tool.name }}</b> jusqu'au {{ tool.booking_end }} <button type="button" class="btn btn-primary btn-sm"><a href="/annuler-ma-reservation?id={{ tool.id }}">Annuler la réservation</a></button>
+  {% for reservation in reservations %}
+    <li class="mb-3"><b>{{ tool.name }}</b> jusqu'au {{ reservation.tool_booking_end }} <button type="button" class="btn btn-primary btn-sm"><a href="/annuler-ma-reservation?id={{ reservation.id }}">Annuler la réservation</a></button>
     </li>
   {% endfor %}
 </ul>
