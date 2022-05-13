@@ -4,9 +4,9 @@
 {% include "Layouts/nav.html.twig" %}
 {% endblock %}
 
-{% block footer %}
+{# {% block footer %}
 {% include "Layouts/footer.html.twig" %}
-{% endblock %}
+{% endblock %} #}
 
 {# {% block content %}
 <p>{{ wishitem.id }}. {{ wishitem.name }}</p>
@@ -30,11 +30,10 @@
             <div class="card-title" "stretched-link-product">
                 <br>
                 <h1 class="stretched-link-product">{{ wishitem.name }}</h1>
-                <h3 class="stretched-link-product">{{ wishitem.price }} €</h3><br>
-                <h5 class="card-text-description text-center">Vote : {{wishitem.vote }}</h5>
-                <a href="/wishlist/edit?id={{ wishitem.id }}">J'accède au vote</a>
+                <h3 class="stretched-link-product">{{ wishitem.price }} €</h3>
+                <h5 class="card-text-description">Etat du vote : {{wishitem.vote }}</h5>
             </div>
-            <form method="post">
+            {# <form method="post">
                 <div class="container">
                     <div class="mb-3 row d-flex align-items-center">
                         <label for="clientNumber" class="col-sm-4 col-form-label">Je suis intéressé(e)</label>
@@ -56,22 +55,20 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            </form> #}
             <p class="card-text-description" align="left" style="width: 520px;">Lorem ipsum dolor sit amet consectetur
                 adipisicing elit. Rem tenetur voluptatibus iusto architecto autem repellendus suscipit dolorum numquam
                 quos cupiditate vel, voluptatum illum, eius in aspernatur, reprehenderit facere at! Suscipit iste omnis
                 accusantium natus nostrum facere ab consectetur totam in quisquam eveniet cupiditate temporibus cum non,
                 dolore, ut consequuntur. </p><br>
             <div class="d-flex col-xs-6 gap-2">
-                <form method="POST">
-                    <div class="btn-add-card-products" "cart mt-4 align-items-center">
-                        <input type="text" class="d-none" name="add_product" value="{{wishitem.id}}">
-                        <button type="submit" class="btn btn-outline btn-sm btn-floating m-1"
-                            style="border-color: #202549; color:#202549;">
-                            <a href={{ wishitem.website }} target="_blank"><strong>Site proposition achat</strong></a><i
-                                class="fas fa-cart-arrow-down" style="width: 100%;"></i>
-                    </div>
-                </form>
+                <div class="btn-add-card-products" "cart mt-4 align-items-center">
+                    <input type="text" class="d-none" name="add_product" value="{{wishitem.id}}">
+                    <button type="submit" class="btn btn-outline btn-sm btn-floating m-1"
+                        style="border-color: #202549; color:#202549;">
+                        <a href={{ wishitem.website }} target="_blank"><strong>Site proposition achat</strong></a><i
+                            class="fas fa-cart-arrow-down" style="width: 100%;"></i>
+                </div>
                 <form action="/wishlist/delete" method="POST">
                     <div class="btn-add-card-products" "cart mt-4 align-items-center gap-2">
                         <input type="hidden" name="id" value="{{ wishitem.id }}">
