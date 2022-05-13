@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\WishlistManager;
+use App\Model\VoteManager;
 
 class WishlistController extends AbstractController
 {
@@ -18,14 +19,22 @@ class WishlistController extends AbstractController
     }
 
   /**
-   * Show informations for a specific item
+   * Show informations for a specific wish item
    */
-    public function show(int $id): string
+    public function show(int $id)
     {
         $wishlistManager = new WishlistManager();
-        $wishitem = $wishlistManager->selectOneById($id);
+        $wishitem = $wishlistManager->selectOneById($id); {
+        $voteManager = new VoteManager();
+        $votes = $voteManager->selectVoteByWishId($id);
+        if (empty($wishitem)) {
+            header('Location:/');
+        }
+        $voteManager = new VoteManager();
+        $votes = $voteManager->selectVoteByWishId($id);
 
-        return $this->twig->render('wishlist/show.html.twig', ['wishitem' => $wishitem]);
+        return $this->twig->render('Wishlist/show.html.twig', ['wishitem' => $wishitem, 'votes' => $votes]);
+        }
     }
 
   /**
@@ -37,17 +46,10 @@ class WishlistController extends AbstractController
         $wishitem = $wishlistManager->selectOneById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-          // clean $_POST data
             $wishitem = array_map('trim', $_POST);
-
-          // TODO validations (length, format...)
-
-          // if validation is ok, update and redirection
             $wishlistManager->update($wishitem);
 
             header('Location: /wishlist/show?id=' . $id);
-
-          // we are redirecting so we don't want any content rendered
             return null;
         }
 
@@ -62,16 +64,11 @@ class WishlistController extends AbstractController
     public function add(): ?string
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-          // clean $_POST data
             $wishitem = array_map('trim', $_POST);
-
-          // TODO validations (length, format...)
-
-          // if validation is ok, insert and redirection
             $wishlistManager = new WishlistManager();
-            $id = $wishlistManager->insert($wishitem);
+            $wishlistManager->insert($wishitem);
 
-            header('Location:/wishlist/show?id=' . $id);
+            header('Location:/wishlist');
             return null;
         }
 

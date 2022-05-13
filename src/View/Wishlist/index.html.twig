@@ -1,13 +1,38 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Wishlist</h1>
-    <ul>
-        {% for wishitem in wishitems %}
-            <li><a href="/wishlist/show?id={{ wishitem.id }}">{{ wishitem.id }}. {{ wishitem.name }}</a></li>
-        {% else %}
-            <li>Nothing to display</li>
-        {% endfor %}
-    </ul>
-    <a href="/wishlist/add">Ajouter</a>
+<h1>Propositions en cours de vote</h1>
+<a href="/wishlist/add">Faire une nouvelle proposition</a>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for wishitem in wishitems %}
+    <div>
+        <div class="all-wishitem-content">
+            <div class="col position-relative">
+                <div class="card-borderless h-100">
+                    <div class="img-wishitem">
+                        <img src="{{ wishitem.image }}" style="width: 300px; height: 300px; object-fit: cover;"
+                            class="card-img-top" alt="..." />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a class="stretched-link-wishitems stretched-link"
+                                href="/wishlist/show?id={{ wishitem.id }}">{{ wishitem.name }}</a>
+                        </h5>
+                        <p class="card-text-description text-center">Prix : {{ wishitem.price }}€ - Vote : {{
+                            wishitem.vote }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-add-card-products" "cart mt-4 align-items-center gap-2">
+            <a href="/wishlist/show?id={{ wishitem.id }}"><button type="submit"
+                    class="btn btn-outline btn-sm btn-floating m-1"
+                    style="border-color: #202549; color:#202549;"><strong>Plus de détails</strong></a><i
+                class="fas fa-heart" style="width: 100%;"></i></a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
