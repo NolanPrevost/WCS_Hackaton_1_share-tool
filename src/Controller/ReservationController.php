@@ -73,13 +73,11 @@ class ReservationController extends AbstractController
             foreach ($reservations as $reservation) {
                 $reservation = $reservation;
             }
-            $tools = $reservationManager->selectToolByUserId(1);
         } else {
             return $this->twig->render('Home/mes-reservations.html.twig');
         }
         return $this->twig->render('Home/mes-reservations.html.twig', [
         'reservations' => $reservations,
-        'tools' => $tools
         ]);
     }
 
