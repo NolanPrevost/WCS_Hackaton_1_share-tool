@@ -31,7 +31,8 @@ class ReservationManager extends AbstractManager
 
     public function selectAllReserved(): array
     {
-        $query = 'SELECT * FROM ' . static::TABLE . ' WHERE user_id = 1';
+        $query = 'SELECT r.id, r.user_id, r.tool_id, r.tool_booking_end, r.tool_booking_start, t.name
+        FROM ' . static::TABLE . ' r INNER JOIN tool t ON r.tool_id = t.id WHERE r.user_id = 1';
         return $this->pdo->query($query)->fetchAll();
     }
 
@@ -39,6 +40,16 @@ class ReservationManager extends AbstractManager
     {
         $statement = $this->pdo->prepare('SELECT * FROM ' . static::TABLE . ' WHERE tool_id = :id');
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
+
+    public function selectToolByReservation($reservationId): array
+    {
+        $statement = $this->pdo->prepare('SELECT r.id, r.user_id, r.tool_booking_start, r.tool_booking_end, t.id, t.name
+        FROM' . static::TABLE . ' r INNER JOIN tool t ON r.tool_id = t.id WHERE r.id = :id');
+        $statement->bindValue('id', $reservationId, \PDO::PARAM_INT);
         $statement->execute();
 
         return $statement->fetchAll();
