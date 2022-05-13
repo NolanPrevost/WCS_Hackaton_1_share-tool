@@ -1,5 +1,13 @@
 {% extends 'layout.html.twig' %}
 
+{% block nav %}
+{% include "Layouts/nav.html.twig" %} 
+{% endblock %}
+
+{% block footer %} 
+{% include "Layouts/footer.html.twig" %} 
+{% endblock %} 
+
 {# {% block content %}
 <p>{{ wishitem.id }}. {{ wishitem.name }}</p>
 <a href="/wishlist/edit?id={{ wishitem.id }}">Edit</a>
