@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Model\UserManager;
 
-
 class SecurityController extends AbstractController
 {
     public function login()
@@ -13,7 +12,6 @@ class SecurityController extends AbstractController
             header('Location: /');
         }
         return $this->twig->render('Security/login.html.twig');
-   
     }
 
     public function logout(): void
