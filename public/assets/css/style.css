@@ -95,3 +95,17 @@
     margin-left: 80px;
     padding: 20px;
 }
+
+.pot-title {
+    margin-left: 10px;
+    padding: 20px;
+}
+
+.all-content-log {
+    padding: 30px;
+    text-align: center;
+}
+
+.login-header {
+    margin-left: 30px;
+}

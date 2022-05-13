@@ -119,6 +119,12 @@ INSERT INTO `user` (`firstname`, `lastname`) VALUES
 ('Dark', 'Vador'),
 ('Sailor', 'Moon');
 
+--
+-- Insert pot
+--
+INSERT INTO `pot` (`amount`) VALUES
+('300');
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

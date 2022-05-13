@@ -1,11 +1,14 @@
-{% extends 'layout.html.twig' %} {% block nav %} {% include
-"Layouts/nav.html.twig" %} {% endblock %} {% block footer %} {% include
-"Layouts/footer.html.twig" %} {% endblock %} {% block content %}
+{% extends 'layout.html.twig' %} 
+
+{% block nav %} {% include "Layouts/nav.html.twig" %} {% endblock %}
+
+{% block footer %} {% include "Layouts/footer.html.twig" %} {% endblock %} 
+
+{% block content %}
+
 <div class="container">
     <h1 class="text-center">Bienvenu !</h1>
-    <h2 class="text-center mb-4">Choisis un outil à réserver</h2>
-
-            
+    <h2 class="text-center mb-4">Choisis un outil à réserver</h2>  
         <div class="home-card">
             <div class="row row-cols-2 row-cols-md-3 g-4">
                 {% for tool in tools %}
