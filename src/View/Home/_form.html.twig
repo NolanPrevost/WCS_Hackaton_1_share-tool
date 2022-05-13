@@ -7,6 +7,15 @@
 {% block content %}
 
 <div class="container">
+  {% if reservations %}
+  Attention ! Le {{ tool.name }} est déjà réservé :
+  <ul>
+    {% for reservation in reservations %}
+      <li class="mb-3"> du {{ reservation.tool_booking_start }} au {{ reservation.tool_booking_end }}
+      </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
   <form action="" method="post" class="form-group">
     <label class="form-label mt-4" for="firstname">Prénom</label>
     <input class="form-control" type="text" id="firstname" name="firstname" value="{{ user.firstname }}">
@@ -21,6 +30,7 @@
       {{ error }}
     {% endfor %}
   </form>
+
 </div>
 
 {% endblock %}

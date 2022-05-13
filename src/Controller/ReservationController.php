@@ -14,13 +14,13 @@ class ReservationController extends AbstractController
         if ($reservations) {
             foreach ($reservations as $reservation) {
                 if (
-                    $startBooking < $reservation['tool_booking_end']
-                    && $startBooking > $reservation['tool_booking_start']
+                    $startBooking <= $reservation['tool_booking_end']
+                    && $startBooking >= $reservation['tool_booking_start']
                 ) {
                     return false;
                 } elseif (
-                    $endBooking < $reservation['tool_booking_end']
-                    && $endBooking > $reservation['tool_booking_start']
+                    $endBooking <= $reservation['tool_booking_end']
+                    && $endBooking >= $reservation['tool_booking_start']
                 ) {
                     return false;
                 }
@@ -35,22 +35,29 @@ class ReservationController extends AbstractController
     {
       // var_dump($_GET);
         $errors = [];
+        $toolId = $_GET['id'];
+        $reservationManager = new ReservationManager();
+        $reservations = $reservationManager->selectReservationByToolId($toolId);
+        $toolManager = new ToolManager();
+        $tool = $toolManager->selectOneById($toolId);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $reservation = array_map('trim', $_POST);
             $reservation['user_id'] = 1;
-            $id = $_GET['id'];
             if (
-                $this->isReservationPossible($id, $reservation['booking_start'], $reservation['booking_end'])
+                $this->isReservationPossible($toolId, $reservation['booking_start'], $reservation['booking_end'])
                 == false
             ) {
                 $errors[] = "Réservation impossible, le créneau demandé n'est pas disponible";
-                return $this->twig->render('Home/_form.html.twig', ['errors' => $errors]);
+                return $this->twig->render('Home/_form.html.twig', [
+                  'errors' => $errors,
+                  'reservations' => $reservations,
+                  'tool' => $tool
+                ]);
             }
-            $reservationManager = new ReservationManager();
-            $reservationManager->insertReservation($reservation, $id);
+            $reservationManager->insertReservation($reservation, $toolId);
             header('Location: /reservation-confirmed');
         }
-        return $this->twig->render('Home/_form.html.twig');
+        return $this->twig->render('Home/_form.html.twig', ['reservations' => $reservations, 'tool' => $tool]);
     }
 
     public function reservationConfirmed()
