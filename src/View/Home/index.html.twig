@@ -2,11 +2,11 @@
 "Layouts/nav.html.twig" %} {% endblock %} {% block footer %} {% include
 "Layouts/footer.html.twig" %} {% endblock %} {% block content %}
 <div class="container">
-    <h1>Bienvenu !</h1>
+    <h1 class="text-center">Bienvenu !</h1>
     <h2>Choisis un outil à réserver</h2>
 
             
-
+        <div class="home-card"></div>
             <div class="row">
               <div class="col">
                 {% for tool in tools %}
@@ -32,6 +32,7 @@
             </div>
             {% endfor %}
         </div>
+    </div>
     </div>
 </div>
 {% endblock %}
