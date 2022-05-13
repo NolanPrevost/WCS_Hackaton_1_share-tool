@@ -1,7 +1,9 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Pots</h1>
+<div class="pot-title">
+    <h1>Pot</h1>
+</div>
     <ul>
         {% for pot in pots %}
             <li><a href="/pots/show?id={{ pot.id }}">{{ pot.id }}. {{ pot.amount }}</a></li>
