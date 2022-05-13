@@ -68,9 +68,13 @@ CREATE TABLE `tool` (
 --
 
 INSERT INTO `tool` (`id`, `name`, `image`) VALUES
-(1, 'Marteau', 'https://i.ibb.co/Kbgf2t4/Adobe-Stock-430355929.jpg'),
-(2, 'Pistolet laser', 'https://i.ibb.co/0rn0hFL/Adobe-Stock-463917493.jpg'),
-(3, 'Nimbus 2000', 'https://i.ibb.co/mFHByRh/Adobe-Stock-403407802.jpg');
+(1, 'Marteau', 'https://cdn.chausson.fr/catalog-image/e262b6fe-f792-4dab-aacc-13d2c7dc097c/400-400/masse-angle-abattue.png'),
+(2, 'Pistolet laser', 'https://m.media-amazon.com/images/I/61I7fSUSSrS._SL1500_.jpg'),
+(3, 'Nimbus 2001', 'https://addict-boe.com/6307-thickbox_default/replique-1-1-balai-magique-nimbus-2000-edition-limitee-numerotee.jpg'),
+(4, 'Snowboard', 'https://www.splitboardshop.fr/media/cache/product_slider/products/1476/54008ADB0A2175A48441BED55304D41844DF838E5A35DBE7E2194A237F115827.jpg'),
+(5, 'Couscoussier', 'https://resize.ovh/o/1bd7b730-4c2e-11ea-aae7-a3c70233f1bc'),
+(6, 'Télémètre laser', 'https://m.media-amazon.com/images/I/819viI-zgOL._AC_SL1500_.jpg');
+
 
 -- --------------------------------------------------------
 

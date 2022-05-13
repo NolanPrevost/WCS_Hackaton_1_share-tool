@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\VoteManager;
+use App\Model\WishlistManager;
 use Exception;
 
 class VoteController extends AbstractController
@@ -50,6 +51,11 @@ class VoteController extends AbstractController
         return $this->twig->render('Vote/edit.html.twig', [
             'vote' => $vote,
         ]);
+    }
+
+    public function voteConfirmed()
+    {
+        return $this->twig->render('Home/vote-confirmed.html.twig');
     }
 
     /**
