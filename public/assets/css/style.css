@@ -7,7 +7,7 @@
 
 .footer-basic {
     padding: 10px 0px;
-    background-color: #aeccda;
+    background-color: #e3ebee;
     color: #060607;
 }
 
@@ -45,7 +45,7 @@
     font-size: 13px;
     color: rgb(30, 33, 80);
     margin-bottom: 0;
-    background-color: #aeccda;
+    background-color: #e3ebee;
 }
 
 .all-wishitem-content {
@@ -83,4 +83,29 @@
     -ms-transform: scale(1.1);
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+}
+
+.home-card {
+    margin-left: 200px;
+    margin-right: 100px;
+    padding: 10px;
+}
+
+.proposition {
+    margin-left: 80px;
+    padding: 20px;
+}
+
+.pot-title {
+    margin-left: 10px;
+    padding: 20px;
+}
+
+.all-content-log {
+    padding: 30px;
+    text-align: center;
+}
+
+.login-header {
+    margin-left: 30px;
 }
