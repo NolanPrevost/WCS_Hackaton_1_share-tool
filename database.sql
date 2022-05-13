@@ -22,6 +22,11 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+-- Creation de la base de données
+
+DROP DATABASE IF EXISTS share_tools;
+CREATE DATABASE share_tools;
+USE share_tools;
 
 --
 -- Structure de la table `pot`
