@@ -1,7 +1,5 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Edit {{ item.title }}</h1>
-    {% include 'Wishlist/_form.html.twig' %}
-    <a href="/wishlist/show?id={{ wishitem.id }}">Back</a>
+    {% include 'Wishlist/show.html.twig' %}
 {% endblock %}

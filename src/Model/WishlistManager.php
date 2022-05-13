@@ -38,4 +38,17 @@ class WishlistManager extends AbstractManager
 
         return $statement->execute();
     }
+
+
+        /**
+     * Update number of votes in database a vote
+     */
+    public function updateVote(int $wishItemId, int $vote): bool
+    {
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `vote` = :vote WHERE id=:id");
+        $statement->bindValue('id', $wishItemId, \PDO::PARAM_INT);
+        $statement->bindValue('vote', $vote, \PDO::PARAM_INT);
+
+        return $statement->execute();
+    }
 }
