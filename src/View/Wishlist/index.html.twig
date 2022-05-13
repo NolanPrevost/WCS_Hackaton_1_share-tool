@@ -1,5 +1,13 @@
 {% extends 'layout.html.twig' %}
 
+{% block nav %}
+{% include "Layouts/nav.html.twig" %} 
+{% endblock %}
+
+{% block footer %} 
+{% include "Layouts/footer.html.twig" %} 
+{% endblock %}
+
 {% block content %}
 <h1>Propositions en cours de vote</h1>
 <a href="/wishlist/add">Faire une nouvelle proposition</a>

@@ -6,7 +6,7 @@
         {% for pot in pots %}
             <li><a href="/pots/show?id={{ pot.id }}">{{ pot.id }}. {{ pot.amount }}</a></li>
         {% else %}
-            <li>Nothing to display</li>
+            <li>300 €</li>
         {% endfor %}
     </ul>
 {% endblock %}
