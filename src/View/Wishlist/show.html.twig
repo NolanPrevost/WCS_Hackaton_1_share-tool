@@ -1,12 +1,12 @@
 {% extends 'layout.html.twig' %}
 
 {% block nav %}
-{% include "Layouts/nav.html.twig" %} 
+{% include "Layouts/nav.html.twig" %}
 {% endblock %}
 
-{% block footer %} 
-{% include "Layouts/footer.html.twig" %} 
-{% endblock %} 
+{# {% block footer %}
+{% include "Layouts/footer.html.twig" %}
+{% endblock %} #}
 
 {# {% block content %}
 <p>{{ wishitem.id }}. {{ wishitem.name }}</p>
@@ -30,20 +30,45 @@
             <div class="card-title" "stretched-link-product">
                 <br>
                 <h1 class="stretched-link-product">{{ wishitem.name }}</h1>
-                <h3 class="stretched-link-product">{{ wishitem.price }} €</h3><br>
+                <h3 class="stretched-link-product">{{ wishitem.price }} €</h3>
+                <h5 class="card-text-description">Etat du vote : {{wishitem.vote }}</h5>
             </div>
-            <p class="card-text-description" align="left" style="width: 520px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem tenetur voluptatibus iusto architecto autem repellendus suscipit dolorum numquam quos cupiditate vel, voluptatum illum, eius in aspernatur, reprehenderit facere at! Suscipit iste omnis accusantium natus nostrum facere ab consectetur totam in quisquam eveniet cupiditate temporibus cum non, dolore, ut consequuntur. </p><br>
-            <div class="d-flex col-xs-6 gap-2">
-
-                <form method="POST">
-                    <div class="btn-add-card-products" "cart mt-4 align-items-center">
-                        <input type="text" class="d-none" name="add_product" value="{{wishitem.id}}">
-                        <button type="submit" class="btn btn-outline btn-sm btn-floating m-1"
-                            style="border-color: #202549; color:#202549;">
-                            <a href={{ wishitem.website }} target="_blank"><strong>Effectuer une
-                                réservation</strong></a><i class="fas fa-cart-arrow-down" style="width: 100%;"></i>
+            {# <form method="post">
+                <div class="container">
+                    <div class="mb-3 row d-flex align-items-center">
+                        <label for="clientNumber" class="col-sm-4 col-form-label">Je suis intéressé(e)</label>
+                        <div class="col-sm-9">
+                            <div class="form-row">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="vote" id="vote" value="1"
+                                        checked>
+                                    <label class="form-check-label" for="inlineRadio1">oui</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="vote" id="vote" value="0">
+                                    <label class="form-check-label" for="inlineRadio2">non</label>
+                                </div>
+                                <div class="d-grid col-2 ms-auto me-auto mt-4">
+                                    <button class="btn btn-outline-dark" type="submit">Confirmer mon vote</button><br>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </form>
+                </div>
+            </form> #}
+            <p class="card-text-description" align="left" style="width: 520px;">Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Rem tenetur voluptatibus iusto architecto autem repellendus suscipit dolorum numquam
+                quos cupiditate vel, voluptatum illum, eius in aspernatur, reprehenderit facere at! Suscipit iste omnis
+                accusantium natus nostrum facere ab consectetur totam in quisquam eveniet cupiditate temporibus cum non,
+                dolore, ut consequuntur. </p><br>
+            <div class="d-flex col-xs-6 gap-2">
+                <div class="btn-add-card-products" "cart mt-4 align-items-center">
+                    <input type="text" class="d-none" name="add_product" value="{{wishitem.id}}">
+                    <button type="submit" class="btn btn-outline btn-sm btn-floating m-1"
+                        style="border-color: #202549; color:#202549;">
+                        <a href={{ wishitem.website }} target="_blank"><strong>Site proposition achat</strong></a><i
+                            class="fas fa-cart-arrow-down" style="width: 100%;"></i>
+                </div>
                 <form action="/wishlist/delete" method="POST">
                     <div class="btn-add-card-products" "cart mt-4 align-items-center gap-2">
                         <input type="hidden" name="id" value="{{ wishitem.id }}">
