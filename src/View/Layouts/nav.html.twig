@@ -21,7 +21,25 @@
         <input class="form-control me-sm-2" type="text" placeholder="Search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
       </form>
-      <p class="col-2 text-center m-2">Cagnotte 300 €</p>
+
+      <div class="login-header">
+      <span class="btn-group">
+        <button type="button" class="btn dropdown-toggle nav-text" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person nav-text fs-3"></i>
+        </button>
+        {% if session.user is defined %}
+        <ul class="dropdown-menu bg-account" aria-expanded="false">
+            <li><a class="dropdown-item" href="/user/show?id={{ session.user.id }}">mon compte</a></li>
+            <li><a class="dropdown-item" href="/logout">se déconnecter</a></li>
+        </ul>
+        {% else %}
+        <ul class="dropdown-menu" aria-expanded="false">
+            <li><a href="/login" class="dropdown-item">Logout</a></li>
+        </ul>
+        {% endif %}
+    </span>
+  </div>
+      <p class="col-2 text-center m-2"><a href= "/pots/show?id=1"> Cagnotte 300€ {{ pot.amount }} </p></a>
     </div>
   </div>
 </nav>
