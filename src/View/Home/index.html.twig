@@ -1,5 +1,36 @@
-{% extends 'layout.html.twig' %}
+{% extends 'layout.html.twig' %} 
+
+{% block nav %} {% include "Layouts/nav.html.twig" %} {% endblock %}
+
+{# {% block footer %} {% include "Layouts/footer.html.twig" %} {% endblock %}  #}
 
 {% block content %}
-    <h1>Hello Wilder !</h1>
+
+<div class="container">
+    <h1 class="text-center">Bienvenu !</h1>
+    <h2 class="text-center mb-4">Choisis un outil à réserver</h2>  
+        <div class="home-card">
+            <div class="row row-cols-2 row-cols-md-3 g-4">
+                {% for tool in tools %}
+                <div class="card border-primary mb-3" style="max-width: 20rem">
+                    <div class="card-header">
+                        <button type="button" class="btn btn-outline-success">
+                            <a href="/tools/reservation?id={{ tool.id }}"
+                                >Réserver</a
+                            >
+                        </button>
+
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ tool.name }}</h4>
+                        <p class="card-text"><img src="{{ tool.image }}" style="width: 120px; height: 120px; object-fit: cover; border-radius: 25px" alt="">
+                        </p>
+                    </div>
+                </div>
+            
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+</div>
 {% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+
+{% block nav %}
+{% include "Layouts/nav.html.twig" %}
+{% endblock %}
+
+{# {% block footer %}
+{% include "Layouts/footer.html.twig" %}
+{% endblock %} #}
+
+{% block content %}
+
+<div class="container">
+  <h1>Mes outils réservés</h1>
+<ul>
+  {% for reservation in reservations %}
+    <li class="mb-3"><b>{{ reservation.name }}</b> du {{ reservation.tool_booking_start }} au {{ reservation.tool_booking_end }} <button type="button" class="btn btn-primary btn-sm"><a href="/annuler-ma-reservation?id={{ reservation.id }}">Annuler la réservation</a></button>
+    </li>
+  {% endfor %}
+</ul>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    {% include 'Wishlist/show.html.twig' %}
+    <div class="mb-3 row">
+        <label for="quantity" class="col-sm-3 col-form-label">Quantité</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" value="{{ product.quantity }}" name="quantity" id="quantity" required />
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+
+{% block nav %}
+{% include "Layouts/nav.html.twig" %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+  {% if reservations %}
+  Attention ! Le {{ tool.name }} est déjà réservé :
+  <ul>
+    {% for reservation in reservations %}
+      <li class="mb-3"> du {{ reservation.tool_booking_start }} au {{ reservation.tool_booking_end }}
+      </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  <form action="" method="post" class="form-group">
+    <label class="form-label mt-4" for="firstname">Prénom</label>
+    <input class="form-control" type="text" id="firstname" name="firstname" value="{{ user.firstname }}">
+    <label class="form-label mt-4" for="lastname">Nom</label>
+    <input class="form-control" type="text" id="lastname" name="lastname" value="{{ user.lastname }}">
+    <label class="form-label mt-4" for="booking_start">Date de début d'emprunt :</label>
+    <input class="form-control" type="text" id="booking_start" name="booking_start" placeholder="Format : aaaa-mm-jj">
+    <label class="form-label mt-4" for="booking_end">Date de retour :</label>
+    <input class="form-control" type="text" id="booking_end" name="booking_end" placeholder="Format : aaaa-mm-jj">
+    <button type="submit" class="btn btn-primary m-3">Réserver</button>
+  </form>
+{% endblock %}
