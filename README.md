@@ -2,6 +2,9 @@
 
 ## Description
 
+This site was made during a hackaton. We had to propose a project that can bring people to think about their ecological impact or to reduce this impact.
+We made ShareTool, a site allowing people living in the same neighborhood to share tools. We all need a drill sometimes but not everyday, isn't it ?  ShareTool allow us to reduce our consumption of electronic devices.
+
 This repository is a simple PHP MVC structure from scratch.
 
 It uses some cool vendors/libraries such as Twig and Grumphp.
